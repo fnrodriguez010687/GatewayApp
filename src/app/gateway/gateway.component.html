@@ -1,0 +1,25 @@
+
+<h2>My Gateways</h2>
+
+<div>
+  <label for="new-GatewayName">Gateway name: </label>
+  <input id="new-GatewayName" #gatewayName />
+  <label for="new-GatewayIp">Gateway Ip: </label>
+  <input id="new-GatewayIp" #gatewayIp />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(gatewayName.value, gatewayIp.value); gatewayName.value='';gatewayIp.value=''">
+    Add gateway
+  </button>
+</div>
+
+<ul class="heroes">
+  <li *ngFor="let gateway of gateways">
+    <a routerLink="/detail/{{gateway.serialNumber}}">
+        <span class="badge">{{gateway.ipv4_Address}}</span> {{gateway.human_ReadAble_Name}}
+      </a>
+      <button type="button" class="delete" title="delete gateway"
+      (click)="delete(gateway)">x</button>
+  </li>
+</ul>
+

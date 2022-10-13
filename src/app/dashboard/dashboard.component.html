@@ -1,0 +1,7 @@
+<h2>Top Gateway</h2>
+<div class="heroes-menu">
+  <a *ngFor="let gateway of gateways"
+    routerLink="/detail/{{gateway.serialNumber}}">
+    {{gateway.human_ReadAble_Name}}
+  </a>
+</div>

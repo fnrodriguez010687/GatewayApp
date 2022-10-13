@@ -1,0 +1,19 @@
+<div *ngIf="device">
+
+    <h2>{{device.vendor | uppercase}} Details</h2>
+    <div><span>id: </span>{{device.uId}}</div>
+    <div>
+      <label for="device-vendor">Device Vendor: </label>
+      <input id="device-vendor" [(ngModel)]="device.vendor" placeholder="name">
+      <label for="device-statu">Device Status: </label>
+      <select id="device-statu" [(ngModel)]="device.status" >
+        <option value="1">Online</option>
+        <option value="2">Offline</option>
+      </select>
+      
+    </div>
+
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="save()">Save</button>
+
+  </div>

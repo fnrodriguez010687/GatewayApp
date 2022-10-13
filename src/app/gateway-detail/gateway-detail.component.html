@@ -1,0 +1,47 @@
+<div *ngIf="gateway">
+
+    <h2>{{gateway.human_ReadAble_Name | uppercase}} Details</h2>
+    <div><span>id: </span>{{gateway.serialNumber}}</div>
+    <div>
+      <label for="gateway-Human_ReadAble_Name">Gateway name: </label>
+      <input id="gateway-Human_ReadAble_Name" [(ngModel)]="gateway.human_ReadAble_Name" placeholder="name">
+      <label for="gateway-">Ip Address: </label>
+      <input id="gateway-ipv4_Address" [(ngModel)]="gateway.ipv4_Address" placeholder="ipv4_Address">
+      
+    </div>
+
+    <button type="button" (click)="goBack()">go back</button>
+    <button type="button" (click)="save()">Save</button>
+
+  </div>
+
+  <div>
+    <h3>Peripheral Device</h3>
+  <label for="new-DeviceVendor">Device Vendor: </label>
+  <input id="new-DeviceVendor" #deviceVendor />
+  <label for="new-DeviceStatus">Device Status: </label>
+  <select id="new-DeviceStatus" #deviceStatus>
+    <option value="1">Online</option>
+    <option value="2">Offline</option>
+  </select>
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(deviceVendor.value, deviceStatus.value); deviceVendor.value='';deviceStatus.value=''">
+    Add device
+  </button>
+  <div>
+    <h3>List of Device</h3>
+    <ul class="heroes" *ngIf="gateway">
+      <li *ngFor="let device of devices">
+        <a routerLink="/device/{{device.uId}}">
+            <span class="badge">{{device.status=='1'?'online':'offline'}}</span> {{device.vendor}}
+          </a>
+          <button type="button" class="delete" title="delete gateway"
+          (click)="delete(device)">x</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  
+ 

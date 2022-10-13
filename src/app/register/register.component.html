@@ -1,0 +1,15 @@
+<div>
+
+    <h2>Register</h2>
+    <div>
+      <label for="username">Username: </label>
+      <input id="username" [(ngModel)]="user.Username" name="username" placeholder="username">
+    </div>
+    <div>
+        <label for="password">Password: </label>
+        <input id="password" [(ngModel)]="user.Password" name="password" placeholder="password">
+     </div>
+
+    <button type="button" (click)="registerUser()">Register</button>
+</div>
+
